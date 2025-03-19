@@ -1,0 +1,23 @@
+<template>
+    <div class="container">
+        <h2>What We Do?</h2>
+        <h3>Cloudroo offers you all kinds of IT solutions</h3>
+        <div class="services">
+            <template for:each={services} for:item="service">
+                <div key={service.id} class="service">
+                    <img src={service.icon} alt={service.title} />
+                    <h3>{service.title}</h3>
+                    <p>
+                        {service.shortDescription}
+                        <template if:true={service.isExpanded}>
+                            {service.fullDescription}
+                        </template>
+                    </p>
+                    <a href="javascript:void(0);" onclick={toggleReadMore} data-id={service.id}>
+                        {service.readMoreLabel}
+                    </a>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>
