@@ -1,0 +1,77 @@
+.features-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 23px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card lightning-icon {
+    margin-bottom: 10px;
+    --slds-c-icon-color-foreground-default: #0070d2;
+    --slds-c-icon-size: 2rem;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.choose-button {
+    background: linear-gradient(135deg, #0f3460, #1b1b2f);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    font-size: 16px;
+}
+@media (max-width: 900px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .features-grid {
+        grid-template-columns: repeat(1, 1fr); /* 1 column for small screens */
+    }
+}
