@@ -1,0 +1,29 @@
+<template>
+    <div class="blog-page-container">
+        <!-- Category Dropdown -->
+        <div class="category-dropdown">
+            <label for="categorySelect">Select Category:</label>
+            <select id="categorySelect" onchange={handleCategoryChange}>
+                <template for:each={categories} for:item="category">
+                    <option key={category} value={category}>{category}</option>
+                </template>
+            </select>
+        </div>
+
+        <!-- Blog Section -->
+        <div class="blog-container">
+            <template for:each={filteredBlogs} for:item="blog">
+                <div key={blog.Id} class="blog-card">
+                    <div class="blog-image-container">
+                        <img src={blog.imageUrl} alt="Blog Image" class="blog-image" />
+                    </div>
+                    <div class="blog-content">
+                        <h2 class="blog-title">{blog.Title__c}</h2>
+                        <p class="blog-description">{blog.Content__c}</p>
+                        <button class="read-more" data-id={blog.Id} onclick={handleReadMore}>Read More →</button>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

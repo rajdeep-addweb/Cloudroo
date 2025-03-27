@@ -1,0 +1,25 @@
+<template>
+    <div class="testimonial-container">
+        <h2 class="testimonial-heading">Meet Our Experts</h2>
+        <div class="testimonial-box">
+            <p class="testimonial-text">{currentTestimonial.message}</p>
+            <div class="author-info">
+                <h3 class="author-name">{currentTestimonial.name}</h3>
+                <p class="author-designation">{currentTestimonial.designation}</p>
+            </div>
+        </div>
+
+        <div class="testimonial-navigation">
+            <template for:each={testimonials} for:item="testimonial">
+                <div key={testimonial.id} class="profile-wrapper">
+                    <img 
+                        src={testimonial.image} 
+                        class="profile-pic {testimonial.id === activeTestimonial ? 'active' : 'inactive'}" 
+                        data-id={testimonial.id} 
+                        onmouseover={handleTestimonialHover} 
+                    />
+                </div>
+            </template>
+        </div>
+    </div>
+</template>
