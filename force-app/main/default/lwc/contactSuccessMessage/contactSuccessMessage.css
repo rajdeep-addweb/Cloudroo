@@ -1,0 +1,18 @@
+.success-message-container {
+    text-align: center;
+    padding: 2rem;
+    background: #f0f9ff;
+    border: 1px solid #b6e0fe;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #0277bd;
+}
+
+.success-message-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.success-message-container p {
+    font-size: 1rem;
+}
