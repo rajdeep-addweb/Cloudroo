@@ -1,0 +1,17 @@
+<template>
+    <div class="carousel">
+        <div class="carousel-container" style={carouselStyle}>
+            <template for:each={slides} for:item="slide" for:index="index">
+                <div key={slide.id} class="carousel-slide" style={slide.inlineStyle} data-index={index}>
+                    <div class="slide-content">
+                        <h2>{slide.title}</h2>
+                        <p>{slide.description}</p>
+                       
+                    </div>
+                </div>
+            </template>
+        </div>
+        <button class="prev" onclick={prevSlide}>&#10094;</button>
+        <button class="next" onclick={nextSlide}>&#10095;</button>
+    </div>
+</template>

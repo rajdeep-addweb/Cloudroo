@@ -1,0 +1,100 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+}
+
+.image-section {
+    flex: 1;
+    text-align: center;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.content-section {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Typography */
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0056b3;
+}
+
+.description,
+.details {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.points-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.point-item {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.point-item::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image-section, .content-section {
+        width: 100%;
+    }
+
+    .content-section {
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .description,
+    .details,
+    .point-item {
+        font-size: 0.95rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .description,
+    .details,
+    .point-item {
+        font-size: 0.9rem;
+    }
+
+    .content-section {
+        padding: 5px;
+    }
+}
