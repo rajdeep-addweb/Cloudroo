@@ -1,178 +1,131 @@
-.blog-detail-container {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 25px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-    transition: all 0.4s ease-in-out;
+/* === Full Screen Width === */
+.blog-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 5%;
+    background: #ffffff;
+    border-radius: 0;
 }
 
-/* === Blog Image === */
-.blog-image-wrapper {
+/* === Blog Header (Image) === */
+.blog-header {
     width: 100%;
-    height: 450px;
-    border-radius: 12px;
-    overflow: hidden;
+    max-height: 600px;
+}
+
+.blog-header lightning-formatted-rich-text {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* === Author Info (Flexbox for Proper Alignment) === */
+.blog-info {
+    display: flex;
+    align-items: center;
     margin-bottom: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
 }
 
-.blog-detail-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease-in-out;
+.author-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
 }
 
-/* Image Hover Effect */
-.blog-detail-image:hover {
-    transform: scale(1.05);
+.author-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f3460;
+}
+
+.blog-date {
+    font-size: 1rem;
+    color: #777;
 }
 
 /* === Blog Title === */
-.blog-detail-title {
-    font-size: 2.5rem;
+.blog-title {
+    font-size: 3rem;
     font-weight: 700;
     color: #0f3460;
-    margin-bottom: 15px;
-    text-align: center;
-    letter-spacing: 1px;
+    text-align: left;
+    margin-bottom: 20px;
 }
 
 /* === Blog Content === */
-.blog-detail-content {
-    font-size: 1.1rem;
-    color: #444;
+.blog-text {
+    font-size: 1.4rem;
+    color: #333;
     line-height: 1.8;
-    text-align: justify;
-    margin-bottom: 40px;
+    text-align: left;
     font-family: 'Inter', sans-serif;
+    padding: 10px 0;
 }
 
 /* === Back Button === */
-.back-button {
-    text-align: center;
+.blog-footer {
+    text-align: left;
     margin-top: 30px;
 }
 
-.back-button a {
-    background-color: #0f3460;
+.back-btn {
+    background: #0f3460;
     color: white;
-    padding: 12px 35px;
+    padding: 14px 35px;
     border-radius: 8px;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: bold;
     transition: all 0.3s;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Button Hover Effect */
-.back-button a:hover {
-    background-color: #1b1b2f;
+.back-btn:hover {
+    background: #1b1b2f;
     transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* === Error Message === */
-.error-message {
-    text-align: center;
-    color: #e74c3c;
-    font-size: 1.2rem;
-    padding: 30px 0;
-}
-
-/* === Loading Message === */
-.loading-message {
-    text-align: center;
-    font-size: 1.1rem;
-    color: #777;
-    padding: 30px 0;
-}
-
-/* === Smooth Container Hover === */
-.blog-detail-container:hover {
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-    transform: translateY(-10px);
-    transition: all 0.4s ease-in-out;
-}
-
-/* ===========================
-✅ FULLY RESPONSIVE DESIGN
-============================== */
-
-/* 💻 Large Desktop Screens */
-@media (max-width: 1440px) {
-    .blog-detail-container {
-        max-width: 900px;
-    }
-    .blog-image-wrapper {
-        height: 400px;
-    }
-}
-
-/* 📱 Tablets */
+/* === Responsive Fixes === */
 @media (max-width: 1024px) {
-    .blog-detail-container {
-        max-width: 700px;
-        padding: 20px;
+    .blog-container {
+        padding: 40px 4%;
     }
-    .blog-image-wrapper {
-        height: 350px;
-    }
-    .blog-detail-title {
-        font-size: 2rem;
-    }
-    .blog-detail-content {
-        font-size: 1rem;
-    }
-    .back-button a {
-        font-size: 0.9rem;
-        padding: 10px 25px;
+    .blog-title {
+        font-size: 2.5rem;
     }
 }
 
-/* 📲 Mobile Devices */
 @media (max-width: 768px) {
-    .blog-detail-container {
-        padding: 15px;
-        max-width: 100%;
-        border-radius: 0;
+    .blog-title {
+        font-size: 2.2rem;
     }
-    .blog-image-wrapper {
-        height: 300px;
+    .blog-text {
+        font-size: 1.2rem;
     }
-    .blog-detail-title {
+    .author-photo {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-container {
+        padding: 30px 3%;
+    }
+    .blog-title {
         font-size: 1.8rem;
     }
-    .blog-detail-content {
-        font-size: 0.95rem;
+    .blog-text {
+        font-size: 1rem;
     }
-    .back-button a {
-        font-size: 0.85rem;
-        padding: 8px 20px;
-    }
-}
-
-/* 📲 Small Mobile Devices */
-@media (max-width: 480px) {
-    .blog-detail-container {
-        padding: 15px;
-        max-width: 100%;
-    }
-    .blog-image-wrapper {
-        height: 250px;
-    }
-    .blog-detail-title {
-        font-size: 1.5rem;
-    }
-    .blog-detail-content {
-        font-size: 0.9rem;
-    }
-    .back-button a {
-        font-size: 0.8rem;
-        padding: 8px 18px;
+    .back-btn {
+        font-size: 1rem;
+        padding: 12px 30px;
     }
 }

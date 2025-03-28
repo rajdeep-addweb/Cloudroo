@@ -5,6 +5,7 @@ import Prabhu from '@salesforce/resourceUrl/Prabhu';
 
 export default class Testimonials extends LightningElement {
     @track activeTestimonial = 1;
+    intervalId;
 
     @track testimonials = [
         {
@@ -36,5 +37,25 @@ export default class Testimonials extends LightningElement {
 
     handleTestimonialHover(event) {
         this.activeTestimonial = parseInt(event.target.dataset.id);
+        this.restartAutoSwitch();
+    }
+
+    connectedCallback() {
+        this.startAutoSwitch();
+    }
+
+    disconnectedCallback() {
+        clearInterval(this.intervalId);
+    }
+
+    startAutoSwitch() {
+        this.intervalId = setInterval(() => {
+            this.activeTestimonial = this.activeTestimonial < this.testimonials.length ? this.activeTestimonial + 1 : 1;
+        }, 5000);
+    }
+
+    restartAutoSwitch() {
+        clearInterval(this.intervalId);
+        this.startAutoSwitch();
     }
 }

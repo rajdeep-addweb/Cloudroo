@@ -10,11 +10,11 @@
         </div>
 
         <div class="testimonial-navigation">
-            <template for:each={testimonials} for:item="testimonial">
+            <template for:each={updatedTestimonials} for:item="testimonial">
                 <div key={testimonial.id} class="profile-wrapper">
                     <img 
                         src={testimonial.image} 
-                        class="profile-pic {testimonial.id === activeTestimonial ? 'active' : 'inactive'}" 
+                        class="profile-pic {testimonial.isActive}" 
                         data-id={testimonial.id} 
                         onmouseover={handleTestimonialHover} 
                     />
