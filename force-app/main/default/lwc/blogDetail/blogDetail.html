@@ -1,28 +1,33 @@
 <template>
     <template if:true={blog}>
-        <div class="blog-detail-container">
-            
-            <!-- Image Wrapper (Fixed Size) -->
-            <div class="blog-image-wrapper">
-                <img src={blog.Image_URL__c} alt="Blog Image" class="blog-detail-image" />
+        <div class="blog-container">
+            <div class="blog-header">
+                <lightning-formatted-rich-text value={blog.Image}></lightning-formatted-rich-text>
             </div>
 
-            <!-- Blog Title -->
-            <h1 class="blog-detail-title">{blog.Title__c}</h1>
-
-            <!-- Blog Content -->
-            <p class="blog-detail-content">{blog.Content__c}</p>
-
-            <!-- Back to Blogs Button -->
-            <div class="back-button">
-                <a onclick={handleBackToList}>← Back to Blogs</a>
+            <div class="blog-info">
+                <template if:true={blog.AuthorPhoto}>
+                    <img src={blog.AuthorPhoto} alt="Author" class="author-photo" />
+                </template>
+                <div class="author-details">
+                    <p class="author-name">{blog.AuthorName}</p>
+                    <p class="blog-date">{formattedDate}</p>
+                </div>
             </div>
 
+            <div class="blog-content">
+                <h1 class="blog-title">{blog.Title}</h1>
+                <p class="blog-category">Category: <span>{blog.Category}</span></p>
+                <lightning-formatted-rich-text class="blog-text" value={blog.Content}></lightning-formatted-rich-text>
+            </div>
+
+            <div class="blog-footer">
+                <button onclick={handleBackToList} class="back-btn">&#8592; Back to Blogs</button>
+            </div>
         </div>
     </template>
 
-    <!-- Error Handling -->
     <template if:true={error}>
-        <p class="error-message">Error loading blog details.</p>
+        <p class="error-msg">Error loading blog details. Please try again later.</p>
     </template>
 </template>

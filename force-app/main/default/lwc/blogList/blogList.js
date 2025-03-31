@@ -10,17 +10,16 @@ export default class BlogList extends NavigationMixin(LightningElement) {
     @track selectedCategory = 'All';
     @track emptySlots = [];
 
+    // ✅ Fetch Blogs
     @wire(getBlogs)
     wiredBlogs({ error, data }) {
         if (data) {
-            this.blogs = data.map(blog => ({
-                ...blog,
-                imageUrl: this.getImageUrl(blog.Image_URL__c) // ✅ Processed Image URL
-            }));
+            this.blogs = data; // ✅ No need for image URL processing
             this.updateFilteredBlogs();
         }
     }
 
+    // ✅ Fetch Categories
     @wire(getCategoryPicklist)
     wiredCategories({ error, data }) {
         if (data) {
@@ -28,6 +27,7 @@ export default class BlogList extends NavigationMixin(LightningElement) {
         }
     }
 
+    // ✅ Navigate to Blog Detail Page
     handleReadMore(event) {
         const blogId = event.currentTarget.dataset.id;
         this[NavigationMixin.Navigate]({
@@ -41,11 +41,13 @@ export default class BlogList extends NavigationMixin(LightningElement) {
         });
     }
 
+    // ✅ Handle Category Selection
     handleCategoryChange(event) {
         this.selectedCategory = event.target.value;
         this.updateFilteredBlogs();
     }
 
+    // ✅ Filter Blogs Based on Selected Category
     updateFilteredBlogs() {
         if (this.selectedCategory === 'All') {
             this.filteredBlogs = this.blogs.slice(0, 6);
@@ -56,10 +58,5 @@ export default class BlogList extends NavigationMixin(LightningElement) {
         // Ensure 6 blog slots always exist (empty slots for layout consistency)
         const missingSlots = 6 - this.filteredBlogs.length;
         this.emptySlots = new Array(missingSlots).fill(null).map((_, index) => `empty-${index}`);
-    }
-
-    // ✅ Compute Image URL Correctly
-    getImageUrl(imageName) {
-        return `/sfsites/c/resource/${imageName}`;
     }
 }
