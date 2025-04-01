@@ -11,6 +11,7 @@
 .blog-header {
     width: 100%;
     max-height: 600px;
+    margin-top: 20px; /* Added gap between header and image */
 }
 
 .blog-header lightning-formatted-rich-text {
@@ -111,6 +112,9 @@
         width: 50px;
         height: 50px;
     }
+    .blog-header {
+        margin-top: 40px; /* Increased gap for smaller screens */
+    }
 }
 
 @media (max-width: 480px) {
@@ -126,5 +130,8 @@
     .back-btn {
         font-size: 1rem;
         padding: 12px 30px;
+    }
+    .blog-header {
+        margin-top: 50px; /* More space between header and image for mobile */
     }
 }
