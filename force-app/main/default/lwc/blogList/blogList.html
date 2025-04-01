@@ -10,10 +10,10 @@
             </select>
         </div>
 
-        <!-- No Blogs Message (Now Centered) -->
+        <!-- No Blogs Message (Centered) -->
         <template if:false={filteredBlogs.length}>
             <div class="no-blogs-container">
-                <div class="no-blogs">No blogs in this category</div>
+                <div class="no-blogs-message">No blogs in this category</div>
             </div>
         </template>
 
@@ -23,7 +23,8 @@
                 <template for:each={filteredBlogs} for:item="blog">
                     <div key={blog.Id} class="blog-card">
                         <div class="blog-image-container">
-                            <img src={blog.imageUrl} alt="Blog Image" class="blog-image" />
+                            <!-- ✅ Display Image from Rich Text Field -->
+                            <lightning-formatted-rich-text value={blog.Image__c}></lightning-formatted-rich-text>
                         </div>
                         <div class="blog-content">
                             <h2 class="blog-title">{blog.Title__c}</h2>
